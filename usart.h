@@ -19,6 +19,8 @@ extern unsigned int tx_len;
 extern unsigned int rx_len;
 extern unsigned int rx_i;
 
+void usart1_send_data (void);
+
 void usart1_bluetooth_init(void);
 unsigned char usart1_send_char (unsigned char c);
 void usart1_send_str (unsigned char *data);

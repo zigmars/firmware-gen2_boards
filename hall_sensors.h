@@ -6,8 +6,8 @@
  * Released under the GPL License, Version 3
  */
 
-#ifndef _HALL_SENSOR_H_
-#define _HALL_SENSOR_H_
+#ifndef _HALL_SENSORS_H_
+#define _HALL_SENSORS_H_
 
 //#define HALL_SENSORS_INTERRUPT EXTI15_10_IRQHandler
 

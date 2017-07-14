@@ -125,7 +125,7 @@ void USART1_IRQHandler()
   }
 }
 
-void usart1_send_data ()
+void usart1_send_data (void)
 {
   while (tx_i) ;
   // Start transmission.

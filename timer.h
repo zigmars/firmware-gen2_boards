@@ -13,7 +13,9 @@
  * Returns the value of micro seconds
  * overflows at ~1h
  */
+
 unsigned int micros (void);
+void TIM2_init(void);
 void TIM4_set_counter_10us (unsigned int value);
 void micros_reset (void);
 

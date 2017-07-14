@@ -10,6 +10,7 @@
 #include "stm32f10x_gpio.h"
 #include "stm32f10x_tim.h"
 #include "hall_sensors.h"
+#include "motor_foc.h"
 #include "main.h"
 #include "gpio.h"
 #include "stdio.h"

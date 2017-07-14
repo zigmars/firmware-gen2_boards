@@ -6,9 +6,10 @@
  * Released under the GPL License, Version 3
  */
 
-#ifndef _USART_H_
-#define _USART_H_
+#ifndef _LEDS_H_
+#define _LEDS_H_
 
+void leds_init (void);
 unsigned char led1_on (void);
 unsigned char led2_on (void);
 unsigned char led3_on (void);

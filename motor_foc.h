@@ -24,8 +24,8 @@
 
 #define DEGRES_120_IN_RADIANS 	(120.0 * (M_PI/180.0))
 
-#define degrees_to_radiands(angle) qfp_fmul(angle, M_PI/180.0)
-#define radians_to_degrees(angle) qfp_fmul(angle, 180.0/M_PI)
+#define DEG_TO_RAD(angle) qfp_fmul(angle, M_PI/180.0)
+#define RAD_TO_DEG(angle) qfp_fmul(angle, 180.0/M_PI)
 
 extern volatile unsigned int motor_speed_erps;
 extern volatile unsigned int PWM_cycles_counter;
@@ -41,6 +41,10 @@ extern volatile int adc_phase_c_current_offset;
 
 extern volatile int motor_max_current_factor;
 
+void FOC_slow_loop (void);
+void FOC_fast_loop (void);
+
+void hall_sensors_read_and_action (void);
 void hall_sensors_interrupt (void);
 void motor_calc_current_dc_offset (void);
 

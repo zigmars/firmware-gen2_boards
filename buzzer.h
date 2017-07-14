@@ -6,8 +6,8 @@
  * Released under the GPL License, Version 3
  */
 
-#ifndef _BUZZER_H
-#define _BUZZER_H
+#ifndef _BUZZER_H_
+#define _BUZZER_H_
 
 void buzzer_init (void);
 void buzzer_on (void);

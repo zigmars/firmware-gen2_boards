@@ -11,13 +11,13 @@
 
 // Define for the NVIC IRQChannel Preemption Priority
 // lower number has higher priority
-#define ADC_ANALOG_WATCHDOG_PRIORITY		0
-#define HALL_SENSORS_PRIORITY			1
-#define	TIM3_PRIORITY				2
-#define I2C_INTERRUPT_PRIORITY			3
-#define	TIM4_PRIORITY				4
-#define	TIM2_PRIORITY				5
-#define	USART1_PRIORITY				6
+#define ADC_ANALOG_WATCHDOG_PRIORITY	0
+#define HALL_SENSORS_PRIORITY					1
+#define	TIM3_PRIORITY									2
+#define I2C_INTERRUPT_PRIORITY				3
+#define	TIM4_PRIORITY									4
+#define	TIM2_PRIORITY									5
+#define	USART1_PRIORITY								6
 
 // State machine
 #define COAST			0
@@ -64,7 +64,7 @@
 #define MOTOR_TYPE_EUC1 			0
 #define MOTOR_TYPE_EUC2 			1
 #define MOTOR_TYPE_MICROWORKS_500W_30KMH 	2 // works well only rotating to left
-#define MOTOR_TYPE MOTOR_TYPE_EUC2
+#define MOTOR_TYPE MOTOR_TYPE_EUC1
 #define MOTOR_OVER_CURRENT			25.0 * 1000.0 // 25 Amps
 #define MOTOR_MAX_CURRENT			4.0 * 1000.0 // motor max current (mA)
 #define MOTOR_MAX_CURRENT_STEP			4 // step value for incrementing/decrementing
@@ -72,12 +72,15 @@
 
 // define the motor rotor delta phase advance over the hall sensors signal
 // value must be [0 --> 59]
-#if (MOTOR_TYPE == MOTOR_TYPE_EUC1) || (MOTOR_TYPE == MOTOR_TYPE_EUC2)
-  #define MOTOR_ROTOR_DELTA_PHASE_ANGLE_RIGHT 	50
-  #define MOTOR_ROTOR_DELTA_PHASE_ANGLE_LEFT 	-2
+#if MOTOR_TYPE == MOTOR_TYPE_EUC1
+	#define MOTOR_ROTOR_DELTA_PHASE_ANGLE_RIGHT 	50
+	#define MOTOR_ROTOR_DELTA_PHASE_ANGLE_LEFT 	-2
+#elif MOTOR_TYPE == MOTOR_TYPE_EUC2
+	#define MOTOR_ROTOR_DELTA_PHASE_ANGLE_RIGHT 	5
+	#define MOTOR_ROTOR_DELTA_PHASE_ANGLE_LEFT 	-52
 #elif MOTOR_TYPE == MOTOR_TYPE_MICROWORKS_500W_30KMH
-  #define MOTOR_ROTOR_DELTA_PHASE_ANGLE_RIGHT 34
-  #define MOTOR_ROTOR_DELTA_PHASE_ANGLE_LEFT 34
+	#define MOTOR_ROTOR_DELTA_PHASE_ANGLE_RIGHT 34
+	#define MOTOR_ROTOR_DELTA_PHASE_ANGLE_LEFT 34
 #endif
 
 
