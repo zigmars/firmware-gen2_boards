@@ -1,7 +1,7 @@
 /*
  * EGG Electric Unicycle firmware
  *
- * Copyright (C) Casainho, 2015, 2106, 2017.
+ * Copyright (C) Casainho, 2015, 2016, 2017.
  *
  * Released under the GPL License, Version 3
  */
@@ -89,5 +89,5 @@ void balance_controller(void)
 	duty_cycle_f = -40.0;
 #endif
 
-	set_pwm_duty_cycle ((int) duty_cycle_f);
+	set_pwm_amplitude_target ((int) duty_cycle_f);
 }

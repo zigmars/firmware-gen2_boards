@@ -18,7 +18,7 @@ extern int duty_cycle;
 
 void apply_duty_cycle (int duty_cycle_value);
 void pwm_duty_cycle_controller (void);
-void set_pwm_duty_cycle (int target_value);
+void  set_pwm_amplitude_target (int target_value);
 unsigned int get_motor_rotation_direction (void);
 unsigned int calculate_duty_cycle(unsigned int rotor_pos_deg, unsigned int amplitude);
 

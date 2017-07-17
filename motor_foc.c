@@ -1,7 +1,7 @@
 /*
  * EGG Electric Unicycle firmware
  *
- * Copyright (C) Casainho, 2015, 2106, 2017.
+ * Copyright (C) Casainho, 2015, 2016, 2017.
  *
  * Released under the GPL License, Version 3
  */
@@ -113,7 +113,7 @@ void FOC_slow_loop (void)
 	float i_alpha = ia;
 	float i_beta = qfp_fdiv(qfp_fsub(ib, ic), ONE_BY_SQRT3);
 
-	temp_motor_rotor_position = (temp_motor_rotor_position + (270 - 1)) % 360; // this makes the motor to run (almost) smooth in both directions -- id current seems good after this
+	temp_motor_rotor_position = (temp_motor_rotor_position + (270 /*- 1*/)) % 360; // this makes the motor to run (almost) smooth in both directions -- id current seems good after this
 	float motor_rotor_position_radians = DEG_TO_RAD(temp_motor_rotor_position);
 
 	float id = qfp_fadd(qfp_fmul(i_alpha, qfp_fcos(motor_rotor_position_radians)), qfp_fmul(i_beta, qfp_fsin(motor_rotor_position_radians)));
@@ -189,7 +189,7 @@ void FOC_slow_loop (void)
 			motor_speed *= -1;
 		}
 		
-		// printf ("%.2f, %.2f, %.2f, %d, %d\r\n", id, iq, correction_value, motor_speed, duty_cycle);
+		printf ("%.2f, %.2f, %.2f, %d, %d\r\n", id, iq, correction_value, motor_speed, duty_cycle);
 	}
 }
 
@@ -213,7 +213,7 @@ void FOC_fast_loop (void)
 #if DO_INTERPOLATION == 1
 	// calculate the interpolation angle
 	// interpolation seems a problem when motor starts, so avoid to do it at very low speed
-	if ( !(duty_cycle < 5 && duty_cycle > -5) || motor_speed_erps >= 80)
+	if ( !(duty_cycle < 5 && duty_cycle > -5) && motor_speed_erps >= 80)
 	{
 		if (interpolation_sum <= (60 * 1000)) // interpolate only for angle <= 60º
 		{
@@ -262,6 +262,9 @@ void FOC_fast_loop (void)
 	_adc_phase_a_current = -_adc_phase_b_current -_adc_phase_c_current;
 #endif
 
+
+
+	// overcurrent monitoring
 	if (
 			(abs(_adc_phase_a_current) > ADC_MOTOR_OVER_CURRENT_LIMIT) ||
 			(abs(_adc_phase_b_current) > ADC_MOTOR_OVER_CURRENT_LIMIT) ||

@@ -31,8 +31,6 @@
 static volatile unsigned int _ms;
 
 unsigned int log_enable = 0;
-extern int mr_delta_phase_angle_right;
-extern int mr_delta_phase_angle_left;
 
 void delay_ms (unsigned int ms)
 {
@@ -95,7 +93,7 @@ int main(void)
 					duty_cycle_value > 1880);
 
 
-	set_pwm_duty_cycle (0);
+	set_pwm_amplitude_target (0);
 	enable_phase_a ();
 	enable_phase_b ();
 	enable_phase_c ();

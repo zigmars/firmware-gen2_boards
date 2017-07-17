@@ -41,6 +41,9 @@ extern volatile int adc_phase_c_current_offset;
 
 extern volatile int motor_max_current_factor;
 
+extern volatile int mr_delta_phase_angle_right;
+extern volatile int mr_delta_phase_angle_left;
+
 void FOC_slow_loop (void);
 void FOC_fast_loop (void);
 

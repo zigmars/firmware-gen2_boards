@@ -13,6 +13,8 @@
 #undef errno
 extern int errno;
 
+extern uint32_t __get_MSP(void);
+
 /*
  environ
  A pointer to a list of environment variables and their values.
