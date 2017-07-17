@@ -213,7 +213,7 @@ void FOC_fast_loop (void)
 #if DO_INTERPOLATION == 1
 	// calculate the interpolation angle
 	// interpolation seems a problem when motor starts, so avoid to do it at very low speed
-	if ( !(duty_cycle < 5 && duty_cycle > -5) && motor_speed_erps >= 80)
+	if ( !(duty_cycle < 5 && duty_cycle > -5) || motor_speed_erps >= 80)
 	{
 		if (interpolation_sum <= (60 * 1000)) // interpolate only for angle <= 60º
 		{
@@ -262,9 +262,6 @@ void FOC_fast_loop (void)
 	_adc_phase_a_current = -_adc_phase_b_current -_adc_phase_c_current;
 #endif
 
-
-
-	// overcurrent monitoring
 	if (
 			(abs(_adc_phase_a_current) > ADC_MOTOR_OVER_CURRENT_LIMIT) ||
 			(abs(_adc_phase_b_current) > ADC_MOTOR_OVER_CURRENT_LIMIT) ||
