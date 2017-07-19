@@ -180,7 +180,7 @@ void FOC_slow_loop (void)
 
 	static unsigned int loop_timer = 0;
 	loop_timer++;
-	if (loop_timer > 10)
+	if (loop_timer > 5)
 	{
 		loop_timer = 0;
 
@@ -189,7 +189,8 @@ void FOC_slow_loop (void)
 			motor_speed *= -1;
 		}
 		
-		printf ("%.2f, %.2f, %.2f, %d, %d\r\n", id, iq, correction_value, motor_speed, duty_cycle);
+		// printf ("%.2f,%.2f,%.2f,%d,%d\n", id, iq, correction_value, motor_speed, duty_cycle);
+		printf ("%d,%d,%d,%d\n", motor_rotor_position, interpolation_angle, interpolation_sum, interpolation_angle_step);
 	}
 }
 

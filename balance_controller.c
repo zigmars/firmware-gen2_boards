@@ -40,7 +40,7 @@ void balance_controller(void)
 	angle_error = IMU_get_angle_error ();
 
 	/////////////////////////////
-
+	
 	float p_term = 0;
 	float i_term = 0;
 	static float i_error = 0;
