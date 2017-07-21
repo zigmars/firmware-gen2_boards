@@ -1,7 +1,7 @@
 /*
  * EGG Electric Unicycle firmware
  *
- * Copyright (C) Casainho, 2015, 2106, 2017.
+ * Copyright (C) Casainho, 2015, 2016, 2017.
  *
  * Released under the GPL License, Version 3
  */
@@ -17,7 +17,7 @@
 #include "motor_foc.h"
 #include "utils.h"
 
-// Full amplitude
+// Full amplitude (0 to 1800) Space Vector PWM, calculated in Mathematica (tools/SV-PWM-short.nb).
 const unsigned int svm_table [SVM_TABLE_LEN] = \
 {
 	900, 927, 954, 982, 1009, 1036, 1063, 1090, 1117, 1144, 1171, 1197, \

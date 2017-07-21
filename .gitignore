@@ -5,3 +5,4 @@
 build
 debug
 .dep
+.DS_Store
