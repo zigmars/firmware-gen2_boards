@@ -87,7 +87,7 @@ float IMU_get_angle_error (void)
 #else
   angle = qfp_fatan2(acc_y, acc_z); //calc angle between Y and Z axis, in rads
 #endif
-  angle = qfp_fmul(qfp_fadd(angle, PI), DEGS_IN_RAD); //convert from rads to degres
+  angle = qfp_fmul(qfp_fadd(angle, PI), DEGS_IN_ONE_RADIAN); //convert from rads to degres
 //  angle = 0.98 * (angle + (gyro_rate * dt)) + 0.02 * (acc_y); //use the complementary filter.
 //  angle = 0.98 * (angle + qfp_fmul(gyro_rate, dt)) + 0.02 * (acc_y); //use the complementary filter.
 //  angle = 0.98 * (angle + qfp_fmul(gyro_rate, dt)) + qfp_fmul(0.02, acc_y); //use the complementary filter.

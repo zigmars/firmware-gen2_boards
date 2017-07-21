@@ -22,7 +22,7 @@
 #define _IMU_H_
 
 #define PI 3.1415926535897932384626433832795
-#define DEGS_IN_RAD 57.2957786
+#define DEGS_IN_ONE_RADIAN 57.2957786
 
 // 16 bits +-16g: -32768 [-16g] <---> 32768 [+16g]
 // 1g --> 2048
